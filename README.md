@@ -6,7 +6,7 @@ Project image/gif
 
 ## Requirements
 
-[libSDL](https://wiki.libsdl.org/SDL2/SourceCode)
+[libMLV-2.0.2](http://www-igm.univ-mlv.fr/~boussica/mlv/api/French/html/index.html)
 
 ## Installation
 
@@ -33,6 +33,5 @@ Project image/gif
 #### Forked from [JackWetherell/c-project-structure](https://github.com/JackWetherell/c-project-structure)
 
 ### Resources, I was going to use:
-- [libSDL Install](https://wiki.libsdl.org/SDL2/SourceCode)
+- [libMLV Install](http://www-igm.univ-mlv.fr/~boussica/mlv/api/French/html/installation_linux.html)
 - [Project Template](https://github.com/JackWetherell/c-project-structure)
-- [ReadMe Template](https://github.com/othneildrew/Best-README-Template)
