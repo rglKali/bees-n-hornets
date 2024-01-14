@@ -1,8 +1,12 @@
-#include <other.h>
+#include <stdio.h>
+#include "MLV/MLV_all.h"
+#include "game.h"
 
 int main()
 {
-    int x = 14, y = 3;
-    int z = add(x, y);
+    // MLV_create_window("Test", "test", 800, 450);
+    // MLV_actualise_window();
+    // MLV_wait_seconds( 15 );
+    // MLV_free_window();
     return 0;
 }

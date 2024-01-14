@@ -1,6 +1,10 @@
 # Ignore the build and lib dirs
 build/*
 lib/*
+deb/*
+
+# Ignore pdf files
+*.pdf
 
 # Ignore any executables
-bin/*
+bin/run

@@ -5,8 +5,8 @@ TARGET := bin/run
 SRCEXT := c
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
-CFLAGS := 
-LIB := -L lib
+CFLAGS = 
+LIB := -lMLV
 INC := -I include
 
 $(TARGET): $(OBJECTS)
@@ -20,6 +20,6 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
 
 clean:
 	@echo " Cleaning..."; 
-	@echo " $(RM) -r $(BUILDDIR) $(TARGET)"; $(RM) -r $(BUILDDIR) $(TARGET)
+	@echo " $(RM) -r $(BUILDDIR) $(TARGET) $(SHARED)"; $(RM) -r $(BUILDDIR) $(TARGET) $(SHARED)
 
-.PHONY: clean
+.PHONY: clean shared

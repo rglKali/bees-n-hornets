@@ -6,7 +6,7 @@ Project image/gif
 
 ## Requirements
 
-Requirements
+[libSDL](https://wiki.libsdl.org/SDL2/SourceCode)
 
 ## Installation
 
