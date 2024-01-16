@@ -1,10 +1,16 @@
-#ifndef GAME_LINKS_H
-#define GAME_LINKS_H
+#ifndef GAME_INIT_H
+#define GAME_INIT_H
 
 #include "structs.h"
 
 void initialize_board();
 
-void initialize_hive(int x, int y);
+Base * initialize_base(int x, int y, char team);
+
+Unit * initialize_unit(int x, int y, char team, char type);
+
+void destroy_unit(Unit * unit);
+
+void destroy_base(Base * base);
 
 #endif

@@ -52,6 +52,16 @@ void link_nid_to_board(Base * nid)
 }
 
 
+void link_base_to_board(Base * base)
+{
+    switch (base->team)
+    {
+        case BEE: link_hive_to_board(base); break;
+        case HORNET: link_nid_to_board(base); break;
+    }
+}
+
+
 void link_base_to_tile(Base * base) 
 {
     // Get the tile
@@ -94,6 +104,9 @@ void link_unit_to_base(Unit * unit, Base * base)
 {
     // Link to NULLs by default
     unit->b_prev = unit->b_next = NULL;
+
+    // Link unit to base
+    unit->base = base;
 
     // Check if the base has no units yet
     if (base->units == NULL) {
@@ -153,6 +166,16 @@ void unlink_nid_from_board(Base * nid)
 }
 
 
+void unlink_base_from_board(Base * base)
+{
+    switch (base->team)
+    {
+        case BEE: unlink_hive_from_board(base); break;
+        case HORNET: unlink_nid_from_board(base); break;
+    }
+}
+
+
 void unlink_base_from_tile(Base * base) 
 {
     // Get the tile
@@ -186,7 +209,7 @@ void unlink_unit_from_tile(Unit * unit)
 }
 
 
-void unlink_unit_from_base(Unit * unit, Base * base) 
+void unlink_unit_from_base(Unit * unit) 
 {
     // Update the next unit's prev pointer
     if (unit->b_next != NULL) {
@@ -198,9 +221,12 @@ void unlink_unit_from_base(Unit * unit, Base * base)
         unit->b_prev->b_next = unit->b_next;
     }
 
-    // Update the tile's pointers
-    if (base->units == unit) 
+    // Update the base's pointers
+    if (unit->base->units == unit) 
     { 
-        base->units = (unit->b_next != NULL) ? unit->b_next : unit->b_prev;
+        unit->base->units = (unit->b_next != NULL) ? unit->b_next : unit->b_prev;
     }
+    
+    // Unlink the unit itself
+    unit->base = NULL;
 }

@@ -1,8 +1,6 @@
-# [c-project-structure](https://github.com/JackWetherell/c-project-structure)
+# Bees VS Hornets
 
-Project description
-
-Project image/gif
+A turn-based strategy game about Bees and Hornets
 
 ## Requirements
 
@@ -23,15 +21,8 @@ Project image/gif
 |-- bin                <- Compiled binaries
 |   `-- run            <- Project main executable
 |-- build              <- Static objects and intermediate files
-|-- data               <- Project data
-|-- docs               <- Documentation
 |-- include            <- Header files
-|-- lib                <- Dynamic objects
 |-- src                <- Source files
 ```
 
 #### Forked from [JackWetherell/c-project-structure](https://github.com/JackWetherell/c-project-structure)
-
-### Resources, I was going to use:
-- [libMLV Install](http://www-igm.univ-mlv.fr/~boussica/mlv/api/French/html/installation_linux.html)
-- [Project Template](https://github.com/JackWetherell/c-project-structure)

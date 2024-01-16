@@ -2,7 +2,7 @@
 #define GAME_STRUCTS_H
 
 #include <stdbool.h>
-#include "game.h"
+#include "consts.h"
 
 typedef struct unit {
     // Common attributes
@@ -10,6 +10,7 @@ typedef struct unit {
     int x, y;                       // Unit's position
     bool move;                      // Unit's destination
     int force;                      // If unit can move (can move by default by the begginig of the turn except busy workers)
+    struct base *base;              // Base, to which unts are belong
     struct unit *t_next, *t_prev;   // Links to another units in the same tile (if any)
     struct unit *b_next, *b_prev;   // Links to another units in the same base (if any)
 

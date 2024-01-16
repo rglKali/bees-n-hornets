@@ -6,5 +6,8 @@ deb/*
 # Ignore pdf files
 *.pdf
 
+# Ignore IDE settings
+.vscode/*
+
 # Ignore any executables
 bin/run

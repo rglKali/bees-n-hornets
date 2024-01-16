@@ -27,34 +27,71 @@ void initialize_board()
 }
 
 
-void initialize_hive(int x, int y)
+Base * initialize_base(int x, int y, char team) 
 {
-    // Allocate memory
-    Base * hive = (Base*)malloc(sizeof(Base));
-    if (hive == NULL) {
-        fprintf(stderr, "Memory allocation failed for Hive\n");
+    Base * base = (Base*)malloc(sizeof(Base));
+    if (base == NULL) {
+        fprintf(stderr, "Memory allocation failed for base\n");
         exit(EXIT_FAILURE);
     }
 
     // Apply attributes
-    hive->team = BEE;
-    hive->x = x; hive->y = y;
-    hive->job = ' ';
-    hive->prod = 0;
+    base->team = team;
+    base->x = x; base->y = y;
+    base->job = ' '; base->prod = 0;
+
+    base->next = base->prev = NULL;
+    base->units = NULL;
+
+    return base;
 }
 
-void initialize_nid(int x, int y)
+
+Unit * initialize_unit(int x, int y, char team, char type) 
 {
-    // Allocate memory
-    Base * nid = (Base*)malloc(sizeof(Base));
-    if (nid == NULL) {
-        fprintf(stderr, "Memory allocation failed for nid\n");
+    Unit * unit = (Unit*)malloc(sizeof(Unit));
+    if (unit == NULL) 
+    {
+        fprintf(stderr, "Memory allocation failed for unit\n");
         exit(EXIT_FAILURE);
     }
 
     // Apply attributes
-    nid->team = HORNET;
-    nid->x = x; nid->y = y;
-    nid->job = ' ';
-    nid->prod = 0;
+    unit->team = team; unit->type = type;
+    unit->x = x; unit->y = y; unit->move = true;
+
+    switch (type)
+    {
+        case BEE_QUEEN: unit->force = BEE_QUEEN_FORCE; break;
+        case BEE_WORKER: unit->force = BEE_WORKER_FORCE; break;
+        case BEE_FIGHTER: unit->force = BEE_FIGHTER_FORCE; break;
+        case BEE_SQUADRON: unit->force = BEE_SQUADRON_FORCE; break;
+        case HORNET_QUEEN: unit->force = HORNET_QUEEN_FORCE; break;
+        case HORNET_HORNET: unit->force = HORNET_HORNET_FORCE; break;
+    }
+
+    unit->b_next = unit->b_prev = NULL;
+    unit->t_next = unit->t_prev = NULL;
+    unit->base = NULL;
+
+    return unit;
+}
+
+
+void destroy_unit(Unit * unit) 
+{
+    unlink_unit_from_base(unit);
+    unlink_unit_from_tile(unit);
+    free(unit);
+}
+
+void destroy_base(Base * base)
+{
+    while (base->units != NULL)
+    {
+        destroy_unit(base->units);
+    }
+    unlink_base_from_tile(base);
+    unlink_base_from_board(base);
+    free(base);
 }

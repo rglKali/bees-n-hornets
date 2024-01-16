@@ -1,0 +1,47 @@
+#ifndef GAME_CONSTS_H
+#define GAME_CONSTS_H
+
+#define BOARD_ROWS 18
+#define BOARD_COLS 12
+
+#define BEE 'B'
+#define HORNET 'h'
+
+#define HARVEST 'R'
+
+#define BEE_HIVE 'H'
+#define BEE_QUEEN 'Q'
+#define BEE_WORKER 'W'
+#define BEE_FIGHTER 'F'
+#define BEE_SQUADRON 'S'
+#define HORNET_NID 'n'
+#define HORNET_QUEEN 'q'
+#define HORNET_HORNET 'h'
+
+#define BEE_QUEEN_FORCE 6
+#define BEE_WORKER_FORCE 1
+#define BEE_FIGHTER_FORCE 5
+#define BEE_SQUADRON_FORCE 12
+#define HORNET_QUEEN_FORCE 6
+#define HORNET_HORNET_FORCE 8
+
+#define BEE_HIVE_PRICE 10
+#define BEE_QUEEN_PRICE 7
+#define BEE_WORKER_PRICE 3
+#define BEE_FIGHTER_PRICE 5
+#define BEE_SQUADRON_PRICE 6
+#define HORNET_NID_PRICE 10
+#define HORNET_QUEEN_PRICE 8
+#define HORNET_HORNET_PRICE 3
+
+#define BEE_QUEEN_TIME 8
+#define BEE_WORKER_TIME 2
+#define BEE_FIGHTER_TIME 4
+#define BEE_SQUADRON_TIME 6
+#define HORNET_QUEEN_TIME 8
+#define HORNET_HORNET_TIME 5
+
+#define HARVEST_TIME 4
+
+
+#endif
